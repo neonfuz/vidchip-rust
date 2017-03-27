@@ -1,0 +1,28 @@
+* Types of stream (in typical game)
+** Backend to Frontend
+*** resource loading
+   - load resources upon entering scene
+   - can't use other resources
+     - limit this to disallow bad practice of trying to load resources
+       exactly as they are needed, possibly causing IO issues
+*** State transfer
+ - state of objects, to be drawn by frontend
+ - stream can be compressed with diff, delta, regular compression, etc
+** Frontend to Backend
+*** Input
+ - local and network?
+** Other
+*** full game state?
+ - could generate other streams based on this
+* IPC strategies
+ - C IPC (rust?)
+   - too similar to just using sdl directly
+ - sqlite
+   - can do read only? (might be viable)
+   - http://stackoverflow.com/questions/14032711/data-sharing-sqlite-vs-shared-memory-ipc
+ - protobuf
+   - fifo
+     - pointless encoding and decoding with little benefit (can't even
+       diff objects easily, unlike sqlite)
+
+
